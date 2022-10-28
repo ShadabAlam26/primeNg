@@ -1,0 +1,19 @@
+::ng-deep .row-accessories
+{
+    background-color: aqua;
+}
+
+.danger
+{
+    color: red;
+}
+
+tr:hover
+{
+    background-color: lightgray;
+}
+
+th:hover
+{
+    cursor: pointer;
+}
