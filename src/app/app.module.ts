@@ -6,10 +6,13 @@ import { AppComponent } from './app.component';
 import {TableModule} from 'primeng/table';
 import { HttpClientModule } from '@angular/common/http';
 import {ButtonModule} from 'primeng/button';
+import { FilterPipe } from './pipe/filter.pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -17,7 +20,8 @@ import {ButtonModule} from 'primeng/button';
     TableModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ButtonModule
+    ButtonModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

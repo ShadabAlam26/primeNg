@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { PrimeTableService } from './prime-table.service';
 import { LazyLoadEvent } from 'primeng/api';
+import { Table } from 'primeng/table';
 // import { __values } from 'tslib';
 
 @Component({
@@ -20,6 +21,14 @@ export class AppComponent {
   booleanValue: any = false;
   loading!: boolean;
   items:[] =[];
+  searchProducts!: any;
+
+  @ViewChild('dt2') dataTable!: Table;
+  columnFilter(event: any, field: any) {
+    console.log(event.target.value,field);
+    
+    this.dataTable.filter(event.target.value, field, 'contains');
+  }
 
   constructor(private tabService: PrimeTableService){}
 
@@ -27,10 +36,10 @@ export class AppComponent {
     this.getProducts();
 
     this.cols = [
-      {  header: 'Code' },
-      {  header: 'Name' },
-      {  header: 'Category' },
-      {  header: 'Quantity' }
+      { field: 'code', header: 'Code' },
+      { field: 'name', header: 'Name' },
+      { field: 'category', header: 'Category' },
+      { field: 'quantity', header: 'Quantity' }
   ];
   }
 
